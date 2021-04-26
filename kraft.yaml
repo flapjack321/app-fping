@@ -1,9 +1,9 @@
-specification: '0.4'
-
+---
+specification: '0.5'
+name: fping
 unikraft:
-  version: staging
+  version: ce19ccc
   kconfig:
-    # Enabled options needed by iperf3
     - CONFIG_LIBUKLIBPARAM=y
     - CONFIG_LIBUKSCHEDCOOP=y
     - CONFIG_LIBSYSCALL_SHIM=y
@@ -20,40 +20,35 @@ unikraft:
     - CONFIG_LIBVFSCORE_AUTOMOUNT_ROOTFS=y
     - CONFIG_LIBVFSCORE_ROOTFS_RAMFS=y
     - CONFIG_LIBVFSCORE_ROOTFS="ramfs"
-
-architectures:
-  x86_64: true
-
-platforms:
-  kvm: true
-
+targets:
+  - architecture: x86_64
+    platform: kvm
 libraries:
   pthread-embedded:
-    version: staging
+    version: c59d7d6
     kconfig:
       - CONFIG_LIBPTHREAD_EMBEDDED=y
   newlib:
-    version: staging
+    version: ddc25cf
     kconfig:
       - CONFIG_LIBNEWLIBC=y
   lwip:
-    version: staging
+    version: 3c85bd4
     kconfig:
       - CONFIG_LWIP_UKNETDEV=y
-      - CONFIG_LWIP_TCP=y
-      - CONFIG_LWIP_WND_SCALE=y
-      - CONFIG_LWIP_TCP_KEEPALIVE=y
       - CONFIG_LWIP_THREADS=y
       - CONFIG_LWIP_SOCKET=y
       - CONFIG_LWIP_AUTOIFACE=y
+      - CONFIG_LWIP_HEAP=y
       - CONFIG_LWIP_IPV4=y
       - CONFIG_LWIP_IPV6=y
       - CONFIG_LWIP_DHCP=y
       - CONFIG_LWIP_DNS=y
       - CONFIG_LWIP_ICMP=y
-      
   fping:
-    version: staging
+    version: 37ea5eb
     kconfig:
       - CONFIG_LIBFPING=y
       - CONFIG_LIBFPING_MAIN_FUNCTION=y
+volumes: {}
+networks: {}
