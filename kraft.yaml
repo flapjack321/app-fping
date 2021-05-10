@@ -2,7 +2,7 @@
 specification: '0.5'
 name: fping
 unikraft:
-  version: ce19ccc
+  version: b5641df
   kconfig:
     - CONFIG_LIBUKLIBPARAM=y
     - CONFIG_LIBUKSCHEDCOOP=y
@@ -21,8 +21,7 @@ unikraft:
     - CONFIG_LIBVFSCORE_ROOTFS_RAMFS=y
     - CONFIG_LIBVFSCORE_ROOTFS="ramfs"
     - CONFIG_LIBUKDEBUG=y
-    - CONFIG_LIBUKDEBUG_PRINTK=y
-    - CONFIG_LIBUKDEBUG_PRINTK_INFO=y
+    - CONFIG_LIBUKDEBUG_ANSI_COLOR
 targets:
   - architecture: x86_64
     platform: kvm
@@ -39,17 +38,19 @@ libraries:
     version: 3c85bd4
     kconfig:
       - CONFIG_LWIP_UKNETDEV=y
+# Note: the time is reduced byt ~0.05ms when using polling mode
+      - CONFIG_LWIP_UKNETDEV_POLLONLY=y      
       - CONFIG_LWIP_THREADS=y
-      - CONFIG_LWIP_SOCKET=y
       - CONFIG_LWIP_AUTOIFACE=y
-      - CONFIG_LWIP_HEAP=y
+      - CONFIG_LWIP_SOCKET=y
       - CONFIG_LWIP_IPV4=y
       - CONFIG_LWIP_IPV6=y
-      - CONFIG_LWIP_DHCP=y
+      - CONFIG_LWIP_UDP=y
+      - CONFIG_LWIP_RAW=y
       - CONFIG_LWIP_DNS=y
       - CONFIG_LWIP_ICMP=y
   fping:
-    version: 37ea5eb
+    version: b2e173f
     kconfig:
       - CONFIG_LIBFPING=y
       - CONFIG_LIBFPING_MAIN_FUNCTION=y
