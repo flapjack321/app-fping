@@ -2,7 +2,7 @@
 specification: '0.5'
 name: fping
 unikraft:
-  version: b5641df
+  version: staging
   kconfig:
     - CONFIG_LIBUKLIBPARAM=y
     - CONFIG_LIBUKSCHEDCOOP=y
@@ -27,18 +27,17 @@ targets:
     platform: kvm
 libraries:
   pthread-embedded:
-    version: c59d7d6
+    version: staging
     kconfig:
       - CONFIG_LIBPTHREAD_EMBEDDED=y
   newlib:
-    version: ddc25cf
+    version: staging
     kconfig:
       - CONFIG_LIBNEWLIBC=y
   lwip:
-    version: 3c85bd4
+    version: staging
     kconfig:
       - CONFIG_LWIP_UKNETDEV=y
-# Note: the time is reduced byt ~0.05ms when using polling mode
       - CONFIG_LWIP_UKNETDEV_POLLONLY=y      
       - CONFIG_LWIP_THREADS=y
       - CONFIG_LWIP_AUTOIFACE=y
@@ -50,7 +49,7 @@ libraries:
       - CONFIG_LWIP_DNS=y
       - CONFIG_LWIP_ICMP=y
   fping:
-    version: b2e173f
+    version: staging
     kconfig:
       - CONFIG_LIBFPING=y
       - CONFIG_LIBFPING_MAIN_FUNCTION=y
