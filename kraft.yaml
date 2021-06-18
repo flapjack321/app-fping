@@ -21,7 +21,6 @@ unikraft:
     - CONFIG_LIBVFSCORE_ROOTFS_RAMFS=y
     - CONFIG_LIBVFSCORE_ROOTFS="ramfs"
     - CONFIG_LIBUKDEBUG=y
-    - CONFIG_LIBUKDEBUG_ANSI_COLOR
 targets:
   - architecture: x86_64
     platform: kvm
@@ -38,7 +37,7 @@ libraries:
     version: staging
     kconfig:
       - CONFIG_LWIP_UKNETDEV=y
-      - CONFIG_LWIP_UKNETDEV_POLLONLY=y      
+      - CONFIG_LWIP_UKNETDEV_POLLONLY=y
       - CONFIG_LWIP_THREADS=y
       - CONFIG_LWIP_AUTOIFACE=y
       - CONFIG_LWIP_SOCKET=y
